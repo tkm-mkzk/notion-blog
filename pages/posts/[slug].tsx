@@ -37,7 +37,7 @@ const Post = ({ post }: any) => {
           key={index}
           className="text-white bg-sky-900 rounded-xl font-medium mt-2 px-2 inline-block"
         >
-          {tag}
+          <Link href={`/posts/tag/${tag}/page/1`}>{tag}</Link>
         </p>
       ))}
       <div className="mt-10 font-medium">

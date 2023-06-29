@@ -16,7 +16,7 @@ function Pagination(props: Props) {
   }
 
   return (
-    <section className="mb-8 mx-2 lg:w1/2 rounded-md p-5">
+    <section className="mb-8 lg:w1/2 mx-2 rounded-md p-5">
       <ul className="flex items-center justify-center gap-4">
         {pages.map((page) => (
           <li key={page} className="bg-sky-900 rounded-lg w-6 h-8 relative">
