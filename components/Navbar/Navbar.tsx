@@ -1,34 +1,28 @@
 import React from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { clsx } from '@mantine/core'
+import { NavMenu } from './NavMenu'
 
 function Navbar() {
+  const router = useRouter()
+
   return (
-    <nav className="container mx-auto lg:px-2 px-5 lg:w-2/5">
-      <div className="container flex items-center justify-between mx-auto">
-        <Link href="/" className="text-2xl font-medium">
-          MikkaCode
-        </Link>
-        <div>
-          <ul className="flex items-center text-sm py-4">
-            <li>
-              <Link href="/" className="block px-4 py-2 hover:text-sky-900 transition-all duration-300">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="block px-4 py-2 hover:text-sky-900 transition-all duration-300">
-                Twitter
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="block px-4 py-2 hover:text-sky-900 transition-all duration-300">
-                Qiita
-              </Link>
-            </li>
-          </ul>
-        </div>
+    <>
+      <div className="fixed z-50 flex w-fit items-start justify-between">
+        <NavMenu />
       </div>
-    </nav>
+      <header className="py-1">
+        <div
+          className={clsx(
+            'mx-auto w-fit cursor-pointer py-4',
+            'hover:title-drop-shadow transition duration-1000 ease-in hover:text-blue-700'
+          )}
+          onClick={() => router.push('/')}
+        >
+          <h1 className="font-mono text-[42px] leading-none font-bold">notion-blog</h1>
+        </div>
+      </header>
+    </>
   )
 }
 
