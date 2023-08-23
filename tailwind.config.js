@@ -9,11 +9,13 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
         'regal-blue': 'rgb(12, 74, 110)',
         skin: 'rgb(254, 215, 170)',
+        default: '#f3f3f3',
       },
       fontFamily: {
         montserrat: ['Montserrat'],
