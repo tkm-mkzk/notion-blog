@@ -1,6 +1,6 @@
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
-import { GithubIcon } from '@/components/commons/icons'
+import { BlogsIcon, GithubIcon } from '@/components/commons/icons'
 import { getAllPosts, getAllTags, getPostsForTopPage } from '@/lib/notionAPI'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
@@ -21,30 +21,44 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({ fourPosts, allTags }: any) {
   return (
-    <div className="container h-full w-full mx-auto">
-      <main className="container w-full mt-16">
-        <h1 className="text-5xl font-medium text-center mb-16">Notion Blog 🚀</h1>
-        {fourPosts.map((post: any) => (
-          <div key={post.id} className="mx-4">
-            <SinglePost
-              title={post.title}
-              description={post.description}
-              date={post.date}
-              tags={post.tags}
-              slug={post.slug}
-              isPagenationPage={false}
-            />
+    <main className="relative z-10 mb-40 min-h-[calc(100vh-102px)] w-full bg-default">
+      <div className=" mx-auto max-w-[1280px]">
+        <div className="mt-2 w-full bg-regal-blue py-8 text-default">
+          <div className="mx-auto w-fit text-right">
+            <div className="font-sans text-4xl font-bold sp:text-3xl">
+              ★NotionApiで作られたブログサイト★
+            </div>
+            <div className="mt-1 font-sans text-sm">好奇心に従順に生きる</div>
           </div>
-        ))}
-        <Link
-          href="/posts/page/1"
-          className="mb-6 lg:w-1/2 mx-auto px-5 block text-right"
-        >
-          ...もっと見る
-        </Link>
-        <Tag tags={allTags} />
+        </div>
 
-        <div className="mx-4">
+        <div className="w-main mx-auto mt-4 space-y-4 pb-10">
+          <h2 className="flex items-center gap-1 text-lg font-bold">
+            新規記事4件
+            <BlogsIcon size={20} />
+          </h2>
+          {fourPosts.map((post: any) => (
+            <div key={post.id} className="mx-4">
+              <SinglePost
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                tags={post.tags}
+                slug={post.slug}
+                isPagenationPage={false}
+              />
+            </div>
+          ))}
+          <Link
+            href="/posts/page/1"
+            className="mb-6 lg:w-1/2 mx-auto px-5 block text-right"
+          >
+            ...もっと見る
+          </Link>
+          <Tag tags={allTags} />
+        </div>
+
+        <div className="mx-auto">
           <h2 className="flex items-center gap-1 text-lg font-bold">
             <GithubIcon size={20} />
             GitHub Contributions
@@ -66,7 +80,7 @@ export default function Home({ fourPosts, allTags }: any) {
             />
           </Link>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }

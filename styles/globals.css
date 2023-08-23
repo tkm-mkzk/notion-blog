@@ -26,3 +26,13 @@ p {
   font-weight: 400;
   line-height: 1.7rem;
 }
+
+@layer utilities {
+  .title-drop-shadow {
+    filter: drop-shadow(-1px -1px 2px rgb(0 0 0 / 0.1)) drop-shadow(3px 3px #1e293b);
+  }
+  .w-main {
+    @apply max-w-[800px];
+    @apply min-w-[375px];
+  }
+}
