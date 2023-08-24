@@ -9,8 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
         'regal-blue': 'rgb(12, 74, 110)',
@@ -21,6 +20,15 @@ module.exports = {
         montserrat: ['Montserrat'],
       },
     },
+    screens: {
+      sp: { max: '640px' },
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+    },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false, // TailWindCSSのResetCSSとMantineの競合を防ぐために無効化
+  },
 }
