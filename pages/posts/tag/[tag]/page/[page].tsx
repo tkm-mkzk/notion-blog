@@ -50,12 +50,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       numberOfPagesByTag,
       currentTag,
       allTags,
+      currentPage,
     },
     revalidate: 10,
   }
 }
 
-const BlogTagPageList = ({ numberOfPagesByTag, posts, currentTag, allTags }: any) => {
+const BlogTagPageList = ({
+  numberOfPagesByTag,
+  posts,
+  currentTag,
+  allTags,
+  currentPage,
+}: any) => {
   return (
     <div className="container h-full w-full mx-auto">
       <main className="container w-full mt-16">
@@ -73,7 +80,11 @@ const BlogTagPageList = ({ numberOfPagesByTag, posts, currentTag, allTags }: any
             </div>
           ))}
         </section>
-        <Pagination numberOfPage={numberOfPagesByTag} tag={currentTag} />
+        <Pagination
+          numberOfPage={numberOfPagesByTag}
+          tag={currentTag}
+          currentPage={currentPage}
+        />
       </main>
       <Tag tags={allTags} />
     </div>
