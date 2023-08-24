@@ -49,10 +49,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const BlogPageList = ({ postsByPage, numberOfPage, allTags }: any) => {
   return (
-    <div className="container h-full w-full mx-auto">
+    <div className="container h-full w-full mx-auto mb-48">
       <main className="container w-full mt-16">
         <h1 className="text-5xl font-medium text-center mb-16">Notion Blog List</h1>
-        <section className="sm:grid grid-cols-2 w-5/6 mx-auto">
+        <section className="sm:grid sm:gap-x-4 grid-cols-2 mx-auto sp:text-2xl sp:mx-2">
           {postsByPage.map((post: any) => (
             <div key={post.id}>
               <SinglePost
@@ -61,7 +61,7 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: any) => {
                 date={post.date}
                 tags={post.tags}
                 slug={post.slug}
-                isPagenationPage={true}
+                isPaginationPage={true}
               />
             </div>
           ))}

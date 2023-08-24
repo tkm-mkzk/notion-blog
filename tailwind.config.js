@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
         'regal-blue': 'rgb(12, 74, 110)',
@@ -18,6 +19,8 @@ module.exports = {
       },
       fontFamily: {
         montserrat: ['Montserrat'],
+        amaticsc: ['Amatic SC'],
+        baloo: ['Baloo'],
       },
     },
     screens: {

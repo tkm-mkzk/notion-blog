@@ -1,6 +1,6 @@
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
-import { BlogsIcon, GithubIcon } from '@/components/commons/icons'
+import { BlogsIcon, GithubIcon, NewIcon } from '@/components/commons/icons'
 import { getAllPosts, getAllTags, getPostsForTopPage } from '@/lib/notionAPI'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
@@ -26,16 +26,15 @@ export default function Home({ fourPosts, allTags }: any) {
       <div className=" mx-auto max-w-[1280px]">
         <div className="mt-2 w-full bg-regal-blue py-8 text-default">
           <div className="mx-auto w-fit text-right">
-            <div className="font-sans text-4xl font-bold sp:text-2xl">
+            <div className="font-sans text-3xl font-bold sp:text-2xl">
               ★ブログサイト by NotionApi★
             </div>
           </div>
         </div>
 
         <div className="w-main mx-auto mt-4 space-y-4 pb-6">
-          <h2 className="flex items-center gap-1 text-lg font-bold ml-4">
-            新規記事4件
-            <BlogsIcon size={20} />
+          <h2 className="flex items-center gap-1 text-lg font-bold ml-4 mb-0 mt-10">
+            <NewIcon size={50} />
           </h2>
           {fourPosts.map((post: any) => (
             <div key={post.id} className="mx-4">
@@ -45,11 +44,14 @@ export default function Home({ fourPosts, allTags }: any) {
                 date={post.date}
                 tags={post.tags}
                 slug={post.slug}
-                isPagenationPage={false}
+                isPaginationPage={false}
               />
             </div>
           ))}
-          <Link href="/posts/page/1" className="mb-6 mx-auto px-5 block text-right">
+          <Link
+            href="/posts/page/1"
+            className="mb-6 pb-6 mx-auto px-5 block text-right no-underline"
+          >
             ...もっと見る
           </Link>
           <Tag tags={allTags} />
@@ -76,7 +78,7 @@ export default function Home({ fourPosts, allTags }: any) {
               />
             </Link>
           </div>
-          <div className="mx-4 ">
+          <div className="mx-4 sticky bottom-0 p-4 text-right sp:p-2">
             <ScrollTopButton />
           </div>
         </div>

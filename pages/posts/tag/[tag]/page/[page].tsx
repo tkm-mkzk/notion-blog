@@ -68,7 +68,7 @@ const BlogTagPageList = ({ numberOfPagesByTag, posts, currentTag, allTags }: any
                 date={post.date}
                 tags={post.tags}
                 slug={post.slug}
-                isPagenationPage={true}
+                isPaginationPage={true}
               />
             </div>
           ))}

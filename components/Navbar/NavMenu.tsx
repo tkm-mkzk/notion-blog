@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { clsx, Transition } from '@mantine/core'
+import { Transition, clsx } from '@mantine/core'
 import { useHover } from '@mantine/hooks'
 import { BlogsIcon, HomeIcon, MenuIcon, TwitterIcon } from '../commons/icons'
 import { NavMenuLink } from './NavMenuLink'
