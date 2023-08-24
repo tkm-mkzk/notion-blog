@@ -10,7 +10,9 @@ export default function Document() {
         ></link>
       </Head>
       <body>
-        <Main />
+        <div className="bg-default">
+          <Main />
+        </div>
         <NextScript />
       </body>
     </Html>

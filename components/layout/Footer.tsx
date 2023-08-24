@@ -1,11 +1,13 @@
 import Link from 'next/link'
+import { NotionIcon } from '../commons/icons'
 
 export const Footer = () => {
   return (
-    <footer className="fixed bottom-0 left-0 flex h-40 w-full flex-col justify-between bg-regal-blue px-8 text-white">
+    <footer className="-z-10 fixed bottom-0 left-0 flex h-40 w-full flex-col justify-between bg-regal-blue px-8 text-white">
       <div className="mt-6">
         <div className="flex gap-2">
-          <Link href="/" className="text-3x font-bold">
+          <NotionIcon size={36} />
+          <Link href="/" className="text-3xl font-bold no-underline text-white">
             notion-blog
           </Link>
         </div>

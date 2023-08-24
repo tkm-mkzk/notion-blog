@@ -2,8 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url(./SourceSans3-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Amatic SC';
+  src: url(./AmaticSC-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Baloo';
+  src: url(./BalooBhai2-SemiBold.ttf);
+}
+
 body {
+  font-family: 'Source Sans 3', sans-serif;
   background-color: #f3f3f3;
+  margin: 0;
 }
 
 img {

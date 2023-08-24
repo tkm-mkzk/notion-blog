@@ -19,8 +19,19 @@ module.exports = {
       },
       fontFamily: {
         montserrat: ['Montserrat'],
+        amaticsc: ['Amatic SC'],
+        baloo: ['Baloo'],
       },
+    },
+    screens: {
+      sp: { max: '640px' },
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false, // TailWindCSSのResetCSSとMantineの競合を防ぐために無効化
+  },
 }
