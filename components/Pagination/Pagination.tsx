@@ -28,8 +28,8 @@ function Pagination(props: Props) {
           <li
             key={page}
             onClick={() => handlePageNavigation(page)}
-            className={`cursor-pointer bg-sky-900 rounded-lg w-6 h-8 relative list-none border border-gray-300 ${
-              page == currentPage ? 'bg-indigo-600' : ''
+            className={`cursor-pointer rounded-lg w-6 h-8 relative list-none ${
+              page == currentPage ? 'bg-indigo-600' : 'bg-sky-900'
             } flex items-center justify-center`}
           >
             <span className="text-gray-100 no-underline">{page}</span>
