@@ -1,3 +1,4 @@
+import { ScrollTopButton } from '@/components/layout/ScrollTopButton'
 import { getAllPosts, getSinglePost } from '@/lib/notionAPI'
 import Link from 'next/link'
 import React from 'react'
@@ -27,18 +28,17 @@ export const getStaticProps = async ({ params }: any) => {
 
 const Post = ({ post }: any) => {
   return (
-    <section className="container lg:px-5 h-screen lg:w-2/5 mx-auto mt-20">
+    <section className="container mx-auto mt-20 mb-48 h-full w-full bg-default px-2">
       <h2 className="w-full text-2xl font-medium">{post.metadata.title}</h2>
       <div className="border-b-2 w-1/3 mt-1 border-sky-900"></div>
       <span className="text-gray-500">Posted date at {post.metadata.date}</span>
       <br />
       {post.metadata.tags.map((tag: string, index: number) => (
-        <p
-          key={index}
-          className="text-white bg-sky-900 rounded-xl font-medium mt-2 px-2 inline-block"
-        >
-          <Link href={`/posts/tag/${tag}/page/1`}>{tag}</Link>
-        </p>
+        <Link href={`/posts/tag/${tag}/page/1`} key={index}>
+          <span className="mr-1 cursor-pointer px-2 font-medium py-1 rounded-xl bg-gray-400 inline-block text-white hover:text-regal-blue">
+            {tag}
+          </span>
+        </Link>
       ))}
       <div className="mt-10 font-medium">
         <ReactMarkdown
@@ -61,6 +61,9 @@ const Post = ({ post }: any) => {
         <Link href="/">
           <span className="pb-20 block mt-3 text-sky-900">←ホームに戻る</span>
         </Link>
+      </div>
+      <div className="mx-4 sticky bottom-0 p-4 text-right sp:p-2">
+        <ScrollTopButton />
       </div>
     </section>
   )

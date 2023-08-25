@@ -1,5 +1,5 @@
 import { getPageLink } from '@/lib/blog-helper'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 interface Props {
@@ -10,10 +10,15 @@ interface Props {
 
 function Pagination(props: Props) {
   const { numberOfPage, tag, currentPage } = props
+  const router = useRouter()
 
   let pages: number[] = []
   for (let i = 1; i <= numberOfPage; i++) {
     pages.push(i)
+  }
+
+  const handlePageNavigation = (page: number) => {
+    router.push(getPageLink(tag, page))
   }
 
   return (
@@ -22,16 +27,12 @@ function Pagination(props: Props) {
         {pages.map((page) => (
           <li
             key={page}
-            className={`bg-sky-900 rounded-lg w-6 h-8 relative list-none ${
-              page === currentPage ? 'bg-indigo-600' : ''
-            }`}
+            onClick={() => handlePageNavigation(page)}
+            className={`cursor-pointer bg-sky-900 rounded-lg w-6 h-8 relative list-none border border-gray-300 ${
+              page == currentPage ? 'bg-indigo-600' : ''
+            } flex items-center justify-center`}
           >
-            <Link
-              href={getPageLink(tag, page)}
-              className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-gray-100 no-underline"
-            >
-              {page}
-            </Link>
+            <span className="text-gray-100 no-underline">{page}</span>
           </li>
         ))}
       </ul>
