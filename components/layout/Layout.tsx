@@ -5,8 +5,10 @@ import { Footer } from './Footer'
 function Layout({ children }: any) {
   return (
     <div>
-      <Navbar />
-      {children}
+      <div className="bg-default">
+        <Navbar />
+        {children}
+      </div>
       <Footer />
     </div>
   )

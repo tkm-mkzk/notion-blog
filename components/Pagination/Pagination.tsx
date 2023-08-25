@@ -1,31 +1,38 @@
 import { getPageLink } from '@/lib/blog-helper'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 interface Props {
   numberOfPage: number
   tag: string
+  currentPage: number
 }
 
 function Pagination(props: Props) {
-  const { numberOfPage, tag } = props
+  const { numberOfPage, tag, currentPage } = props
+  const router = useRouter()
 
   let pages: number[] = []
   for (let i = 1; i <= numberOfPage; i++) {
     pages.push(i)
   }
 
+  const handlePageNavigation = (page: number) => {
+    router.push(getPageLink(tag, page))
+  }
+
   return (
     <section className="mb-8 mx-2 rounded-md p-5">
       <ul className="flex items-center justify-center gap-4 p-0">
         {pages.map((page) => (
-          <li key={page} className="bg-sky-900 rounded-lg w-6 h-8 relative list-none">
-            <Link
-              href={getPageLink(tag, page)}
-              className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-gray-100 no-underline"
-            >
-              {page}
-            </Link>
+          <li
+            key={page}
+            onClick={() => handlePageNavigation(page)}
+            className={`cursor-pointer bg-sky-900 rounded-lg w-6 h-8 relative list-none border border-gray-300 ${
+              page == currentPage ? 'bg-indigo-600' : ''
+            } flex items-center justify-center`}
+          >
+            <span className="text-gray-100 no-underline">{page}</span>
           </li>
         ))}
       </ul>

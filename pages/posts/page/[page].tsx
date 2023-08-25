@@ -1,6 +1,7 @@
 import Pagination from '@/components/Pagination/Pagination'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
+import { ScrollTopButton } from '@/components/layout/ScrollTopButton'
 import {
   getAllPosts,
   getPostsByPage,
@@ -42,16 +43,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
       postsByPage,
       numberOfPage,
       allTags,
+      currentPage,
     },
     revalidate: 10,
   }
 }
 
-const BlogPageList = ({ postsByPage, numberOfPage, allTags }: any) => {
+const BlogPageList = ({ postsByPage, numberOfPage, allTags, currentPage }: any) => {
   return (
     <div className="container h-full w-full mx-auto mb-48">
       <main className="container w-full mt-16">
-        <h1 className="text-5xl font-medium text-center mb-16">Notion Blog List</h1>
+        <h1 className="text-regal-blue text-5xl font-medium text-center mb-16">Notion Blog List</h1>
         <section className="sm:grid sm:gap-x-4 grid-cols-2 mx-auto sp:text-2xl sp:mx-2">
           {postsByPage.map((post: any) => (
             <div key={post.id}>
@@ -66,9 +68,12 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: any) => {
             </div>
           ))}
         </section>
-        <Pagination numberOfPage={numberOfPage} tag={''} />
+        <Pagination numberOfPage={numberOfPage} tag={''} currentPage={currentPage} />
         <Tag tags={allTags}></Tag>
       </main>
+      <div className="mx-4 sticky bottom-0 p-4 text-right sp:p-2">
+        <ScrollTopButton />
+      </div>
     </div>
   )
 }
