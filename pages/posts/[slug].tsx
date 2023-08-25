@@ -1,10 +1,12 @@
 import { ScrollTopButton } from '@/components/layout/ScrollTopButton'
 import { getAllPosts, getSinglePost } from '@/lib/notionAPI'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { Button } from '@mantine/core'
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts()
@@ -27,9 +29,17 @@ export const getStaticProps = async ({ params }: any) => {
 }
 
 const Post = ({ post }: any) => {
+  const router = useRouter()
+
   return (
     <section className="container mx-auto mt-20 mb-48 h-full w-full bg-default px-2">
-      <h2 className="w-full text-2xl font-medium">{post.metadata.title}</h2>
+      <div className="mt-2 w-full bg-regal-blue py-8 text-default">
+        <div className="mx-auto w-fit text-right">
+          <div className="font-sans text-3xl font-bold sp:text-2xl">
+            {post.metadata.title}
+          </div>
+        </div>
+      </div>
       <div className="border-b-2 w-1/3 mt-1 border-sky-900"></div>
       <span className="text-gray-500">Posted date at {post.metadata.date}</span>
       <br />
@@ -58,9 +68,7 @@ const Post = ({ post }: any) => {
           {post.markdown.parent}
         </ReactMarkdown>
 
-        <Link href="/">
-          <span className="pb-20 block mt-3 text-sky-900">←ホームに戻る</span>
-        </Link>
+        <Button onClick={() => router.back()}>戻る</Button>
       </div>
       <div className="mx-4 sticky bottom-0 p-4 text-right sp:p-2">
         <ScrollTopButton />
