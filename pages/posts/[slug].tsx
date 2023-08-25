@@ -32,7 +32,7 @@ const Post = ({ post }: any) => {
   const router = useRouter()
 
   return (
-    <section className="container mx-auto mt-20 mb-48 h-full w-full bg-default px-2">
+    <section className="container mx-auto mb-48 h-full w-full bg-default px-2">
       <div className="mt-2 w-full bg-regal-blue py-8 text-default">
         <div className="mx-auto w-fit text-right">
           <div className="font-sans text-3xl font-bold sp:text-2xl">
