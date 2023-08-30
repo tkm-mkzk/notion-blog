@@ -1,3 +1,4 @@
+import { Button } from '@mantine/core'
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 export const Login = () => {
@@ -19,12 +20,16 @@ export const Login = () => {
   return session ? (
     <>
       {/* {JSON.stringify(session)} */}
-      <button onClick={() => signIn('google')}>Link Google</button>
-      <button onClick={() => signOut()}>SignOut</button>
+      {/* <button onClick={() => signIn('google')}>Link Google</button> */}
+      <Button color="cyan" onClick={() => signOut()}>
+        SignOut
+      </Button>
     </>
   ) : (
     <>
-      <button onClick={() => signIn()}>SignIn</button>
+      <Button color="cyan" onClick={() => signIn()}>
+        SignIn
+      </Button>
     </>
   )
 }
